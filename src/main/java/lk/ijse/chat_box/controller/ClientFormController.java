@@ -1,14 +1,12 @@
 package lk.ijse.chat_box.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,7 +18,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-import lk.ijse.chat_box.dto.Client;
+import lk.ijse.chat_box.client.Client;
 
 import java.io.*;
 import java.net.URL;
