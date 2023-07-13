@@ -1,4 +1,4 @@
-package lk.ijse.chat_box.dto;
+package lk.ijse.chat_box.server;
 
 import lk.ijse.chat_box.controller.ClientFormController;
 
@@ -73,7 +73,7 @@ public class ClientHandler implements Runnable{
     }
 
     private void sendImage(String sender, byte[] bytes) throws IOException {
-        outputStream.writeUTF("*image*");
+        outputStream.writeUTF("image");
         outputStream.writeUTF(sender);
         outputStream.writeInt(bytes.length);
         outputStream.write(bytes);
