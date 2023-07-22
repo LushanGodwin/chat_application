@@ -48,11 +48,10 @@ public class Client implements Runnable, Serializable {
         while (true) {
             try {
                 String message = inputStream.readUTF();
-                System.out.println(message);
+
                 if (message.equals("image")) {
                     receiveImage();
                 } else {
-                    System.out.println(message);
                     clientFromController.writeMessage(message);
                 }
             } catch (IOException e) {

@@ -49,9 +49,9 @@ public class ClientJoinFormController {
 
                 if (!checkDuplicate(txtUserName.getText())) {
                     userList.add(txtUserName.getText());
+                    Client client = new Client(txtUserName.getText());
                     txtUserName.setText("");
                     txtPassword.setText("");
-                    Client client = new Client(txtUserName.getText());
                     Thread thread = new Thread(client);
                     thread.start();
                 } else {
