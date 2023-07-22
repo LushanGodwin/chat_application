@@ -106,11 +106,9 @@ public class ClientFormController implements Initializable {
         Label messageLbl = new Label(message);
         messageLbl.setStyle("-fx-background-color:   #2980b9;-fx-background-radius:15;-fx-font-size: 18;-fx-font-weight: normal;-fx-text-fill: white;-fx-wrap-text: true;-fx-alignment: center-left;-fx-content-display: left;-fx-padding: 10;-fx-max-width: 350;");
         hBox.getChildren().add(messageLbl);
-        Platform.runLater(() -> {
 
             vBox.getChildren().add(hBox);
             //scrollPane.setVvalue(1.0);
-        });
 
     }
 

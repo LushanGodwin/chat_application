@@ -25,11 +25,6 @@ public class ClientHandler implements Runnable{
         clientHandlerList.add(this);
     }
 
-    public static void broadcast(String msg) throws IOException {
-        for (ClientHandler handler : clientHandlerList) {
-            handler.sendMessage("SERVER", msg);
-        }
-    }
 
     @Override
     public void run() {
@@ -57,6 +52,7 @@ public class ClientHandler implements Runnable{
 
     public void sendMessage(String sender, String msg) throws IOException {
         outputStream.writeUTF(sender + ": " + msg);
+        System.out.println(msg);
         outputStream.flush();
     }
 

@@ -20,11 +20,13 @@ public class ClientJoinFormController {
 
     List<String> userList = new ArrayList<>();
 
-   UserBO userBO = new UserBOImpl();
+    UserBO userBO = new UserBOImpl();
 
 
     @FXML
     private Button btnJoin;
+    @FXML
+    private Button btnRegister;
 
     @FXML
     private AnchorPane root;
@@ -43,18 +45,20 @@ public class ClientJoinFormController {
 
 
         try {
-            if(userBO.isValidUser(new UserDTO(txtUserName.getText(),txtPassword.getText()))){
+            if (userBO.isValidUser(new UserDTO(txtUserName.getText(), txtPassword.getText()))) {
 
-                if(!checkDuplicate(txtUserName.getText())) {
+                if (!checkDuplicate(txtUserName.getText())) {
                     userList.add(txtUserName.getText());
+                    txtUserName.setText("");
+                    txtPassword.setText("");
                     Client client = new Client(txtUserName.getText());
                     Thread thread = new Thread(client);
                     thread.start();
-                }else{
-                    new Alert(Alert.AlertType.ERROR,"User is already join this chat !").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "User is already join this chat !").show();
                 }
-            }else{
-                new Alert(Alert.AlertType.ERROR,"Invalid User name or password !").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Invalid User name or password !").show();
 
             }
         } catch (SQLException e) {
@@ -65,24 +69,25 @@ public class ClientJoinFormController {
     private boolean checkDuplicate(String user_name) {
 
 
-        for (String name : userList){
-            if (name.equals(user_name)){
+        for (String name : userList) {
+            if (name.equals(user_name)) {
                 return true;
             }
-
         }
         return false;
     }
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
-        if (!(txtRegisterUserName.getText().isEmpty()||txtRegisterUserPassword.getText().isEmpty())) {
+        if (!(txtRegisterUserName.getText().isEmpty() || txtRegisterUserPassword.getText().isEmpty())) {
             try {
                 if (userBO.isExistUser(txtRegisterUserName.getText())) {
                     new Alert(Alert.AlertType.ERROR, "User name is Already Added !").show();
                 } else {
                     boolean isAdded = userBO.addUser(new UserDTO(txtRegisterUserName.getText(), txtRegisterUserPassword.getText()));
                     if (isAdded) {
+                        txtRegisterUserName.setText("");
+                        txtRegisterUserPassword.setText("");
                         new Alert(Alert.AlertType.INFORMATION, "User is Added !").show();
                     } else {
                         new Alert(Alert.AlertType.ERROR, "User is not Added !").show();
@@ -92,9 +97,30 @@ public class ClientJoinFormController {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }else {
-            new Alert(Alert.AlertType.ERROR,"Please fill user name and password !").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Please fill user name and password !").show();
         }
-        }
+    }
+
+    @FXML
+    void txtPasswordOnAction(ActionEvent event) {
+
+        btnJoin.fire();
+    }
+
+    @FXML
+    void txtRegisterUserNameOnAction(ActionEvent event) {
+        txtRegisterUserPassword.requestFocus();
+    }
+
+    @FXML
+    void txtRegisterUserPasswordOnAction(ActionEvent event) {
+        btnRegister.fire();
+    }
+
+    @FXML
+    void txtUserNameOnAction(ActionEvent event) {
+        txtPassword.requestFocus();
+    }
 
 }

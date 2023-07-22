@@ -10,11 +10,11 @@
 
 <AnchorPane fx:id="root" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="430.0" style="-fx-background-color: #00001a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.chat_box.controller.ClientJoinFormController">
    <children>
-      <JFXTextField fx:id="txtUserName" focusColor="WHITE" layoutX="80.0" layoutY="473.0" prefHeight="37.0" prefWidth="251.0" promptText="User name" style="-fx-background-color: white; -fx-background-radius: 10;" unFocusColor="#01040d">
+      <JFXTextField fx:id="txtUserName" focusColor="WHITE" layoutX="80.0" layoutY="203.0" onAction="#txtUserNameOnAction" prefHeight="37.0" prefWidth="251.0" promptText="User name" style="-fx-background-color: white; -fx-background-radius: 10;" unFocusColor="#01040d">
          <font>
             <Font name="Times New Roman" size="20.0" />
          </font></JFXTextField>
-      <Button layoutX="157.0" layoutY="622.0" mnemonicParsing="false" onAction="#btnJoinOnAction" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: #0A6EBD; -fx-background-radius: 10;" text="Join" textFill="WHITE">
+      <Button fx:id="btnJoin" layoutX="155.0" layoutY="357.0" mnemonicParsing="false" onAction="#btnJoinOnAction" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: #0A6EBD; -fx-background-radius: 10;" text="Join" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
@@ -26,29 +26,29 @@
             <Image url="@image/logo.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtPassword" focusColor="WHITE" layoutX="80.0" layoutY="550.0" prefHeight="37.0" prefWidth="251.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" unFocusColor="#01040d">
+      <JFXTextField fx:id="txtPassword" focusColor="WHITE" layoutX="80.0" layoutY="280.0" onAction="#txtPasswordOnAction" prefHeight="37.0" prefWidth="251.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" unFocusColor="#01040d">
          <font>
             <Font name="Times New Roman" size="20.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="87.0" layoutY="449.0" text="User name" textFill="WHITE" />
-      <Label layoutX="87.0" layoutY="526.0" text="Password" textFill="WHITE" />
-      <Button layoutX="152.0" layoutY="357.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #0A6EBD; -fx-background-radius: 10;" text="Register" textFill="WHITE">
+      <Label layoutX="87.0" layoutY="179.0" text="User name" textFill="WHITE" />
+      <Label layoutX="87.0" layoutY="256.0" text="Password" textFill="WHITE" />
+      <Button fx:id="btnRegister" layoutX="152.0" layoutY="615.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #0A6EBD; -fx-background-radius: 10;" text="Register" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </Button>
-      <JFXTextField fx:id="txtRegisterUserName" focusColor="WHITE" layoutX="80.0" layoutY="212.0" prefHeight="37.0" prefWidth="251.0" promptText="User name" style="-fx-background-color: white; -fx-background-radius: 10;" unFocusColor="#01040d">
+      <JFXTextField fx:id="txtRegisterUserName" focusColor="WHITE" layoutX="80.0" layoutY="442.0" onAction="#txtRegisterUserNameOnAction" prefHeight="37.0" prefWidth="251.0" promptText="User name" style="-fx-background-color: white; -fx-background-radius: 10;" unFocusColor="#01040d">
          <font>
             <Font name="Times New Roman" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtRegisterUserPassword" focusColor="WHITE" layoutX="80.0" layoutY="291.0" prefHeight="37.0" prefWidth="251.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" unFocusColor="#01040d">
+      <JFXTextField fx:id="txtRegisterUserPassword" focusColor="WHITE" layoutX="80.0" layoutY="521.0" onAction="#txtRegisterUserPasswordOnAction" prefHeight="37.0" prefWidth="251.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" unFocusColor="#01040d">
          <font>
             <Font name="Times New Roman" size="20.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="87.0" layoutY="188.0" text="User name" textFill="WHITE" />
-      <Label layoutX="87.0" layoutY="267.0" text="Password" textFill="WHITE" />
+      <Label layoutX="87.0" layoutY="418.0" text="User name" textFill="WHITE" />
+      <Label layoutX="87.0" layoutY="497.0" text="Password" textFill="WHITE" />
    </children>
 </AnchorPane>
